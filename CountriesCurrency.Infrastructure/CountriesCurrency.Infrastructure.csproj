@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CountriesCurrency.CrossCutting\CountriesCurrency.CrossCutting.csproj" />
+    <ProjectReference Include="..\CountriesCurrency.Entities\CountriesCurrency.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
