@@ -6,7 +6,8 @@ namespace CountriesCurrency.Application.Dtos
     {
         public string Name { get; set; }
         public int Population { get; set; }
-        public double Area { get; set; }
-        public List<CountryDto> Borders { get; set; }
+        public double? Area { get; set; }
+        public IEnumerable<string> Borders { get; set; }
+        public IEnumerable<CurrenciesDto> Currencies { get; set; }
     }
 }

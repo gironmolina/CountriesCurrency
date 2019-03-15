@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -12,9 +13,19 @@ namespace CountriesCurrency.CrossCutting.Helpers
             {
                 using (var response = await client.GetAsync(url).ConfigureAwait(false))
                 {
-                    response.EnsureSuccessStatusCode();
-                    var content = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<T>(content);
+                    try
+                    {
+                        response.EnsureSuccessStatusCode();
+                        var content = await response.Content.ReadAsStringAsync();
+                        var asd = JsonConvert.DeserializeObject<dynamic>(content);
+                        return JsonConvert.DeserializeObject<T>(content);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        throw;
+                    }
+                    
                 }
             }
         }

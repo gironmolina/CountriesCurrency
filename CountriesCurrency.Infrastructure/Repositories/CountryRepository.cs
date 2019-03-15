@@ -15,7 +15,7 @@ namespace CountriesCurrency.Infrastructure.Repositories
 
         public async Task<IList<CountryEntity>> GetCountriesByCurrency()
         {
-            var asd = "http://quiet-stone-2094.herokuapp.com/transactions.json";
+            var asd = "https://restcountries.eu/rest/v2/currency/eur";
             var transactions = await HttpClientHelpers.GetAsync<IList<CountryEntity>>(asd)
                 .ConfigureAwait(false);
             return transactions;

@@ -7,7 +7,8 @@ namespace CountriesCurrency.Entities
     {
         public string Name { get; set; }
         public int Population { get; set; }
-        public double Area { get; set; }
-        public List<CountryEntity> Borders { get; set; }
+        public double? Area { get; set; }
+        public IEnumerable<string> Borders { get; set; }
+        public IEnumerable<CurrenciesEntity> Currencies { get; set; }
     }
 }
