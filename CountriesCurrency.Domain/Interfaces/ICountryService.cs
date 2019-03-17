@@ -6,6 +6,6 @@ namespace CountriesCurrency.Domain.Interfaces
 {
     public interface ICountryService
     {
-        Task<IList<CountryEntity>>GetCountries(string currency);
+        Task<IEnumerable<CountryEntity>>GetCountries(string currency);
     }
 }

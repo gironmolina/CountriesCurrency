@@ -18,7 +18,7 @@ namespace CountriesCurrency.Domain.Services
             _logger = logger;
         }
 
-        public async Task<IList<CountryEntity>> GetCountries(string currency)
+        public async Task<IEnumerable<CountryEntity>> GetCountries(string currency)
         {
             _logger.LogInformation($"GetCountries by currency:{currency} was called");
             var countries = await _countryRepository.GetCountriesByCurrency(currency)
