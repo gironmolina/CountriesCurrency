@@ -15,7 +15,7 @@ namespace CountriesCurrency.UnitTests.Domain
         {
             // Arrange
             var repositoryMock = new Mock<ICountryRepository>();
-            repositoryMock.Setup(x => x.GetCountriesByCurrency(It.IsAny<string>())).ReturnsAsync(Helper.GetMockCountries());
+            repositoryMock.Setup(repository => repository.GetCountriesByCurrency(It.IsAny<string>())).ReturnsAsync(Helper.GetMockCountries());
             var loggerMock = new Mock<ILogger<CountryService>>();
             var countryService = new CountryService(repositoryMock.Object, loggerMock.Object);
 

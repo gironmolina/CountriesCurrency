@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CountriesCurrency.API;
+﻿using CountriesCurrency.API;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -18,11 +14,7 @@ namespace CountriesCurrency.IntegrationTests
             {
                 // Create a new service provider.
                 var serviceProvider = new ServiceCollection()
-                    .AddEntityFrameworkInMemoryDatabase()
                     .BuildServiceProvider();
-
-                // Add a database context (AppDbContext) using an in-memory database for testing.
-                
 
                 // Build the service provider.
                 var sp = services.BuildServiceProvider();

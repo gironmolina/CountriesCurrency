@@ -1,7 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Net;
 using System.Threading.Tasks;
+using CountriesCurrency.Application.Dtos;
+using CountriesCurrency.Application.Interfaces;
+using CountriesCurrency.API.Controllers;
+using CountriesCurrency.UnitTests.Utils;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Moq;
 using Xunit;
 
 namespace CountriesCurrency.UnitTests.Controllers
@@ -9,36 +16,41 @@ namespace CountriesCurrency.UnitTests.Controllers
     public class CountriesControllerTest
     {
         [Fact]
-        public async Task Values_Get_All()
+        public async Task GetCountriesByCurrency_ShouldReturnExpectedResult()
         {
             // Arrange
-            //var controller = new PersonsController(new PersonService());
+            var loggerMock = new Mock<ILogger<CountriesController>>();
+            var countryAppServiceMock = new Mock<ICountryAppService>();
+            countryAppServiceMock.Setup(repository => repository.GetCountriesAdapter(It.IsAny<string>()))
+                .ReturnsAsync(Helper.GetMockCountriesDto());
+            var controller = new CountriesController(loggerMock.Object, countryAppServiceMock.Object);
 
-            //// Act
-            //var result = await controller.Get();
+            // Act
+            var result = await controller.Get(It.IsAny<string>()).ConfigureAwait(false) as OkObjectResult;
 
-            //// Assert
-            //var okResult = result.Should().BeOfType<OkObjectResult>().Subject;
-            //var persons = okResult.Value.Should().BeAssignableTo<IEnumerable<Person>>().Subject;
-
-            //persons.Count().Should().Be(50);
+            // Assert
+            Assert.NotNull(result);
+            var items = Assert.IsType<List<CountryDto>>(result.Value);
+            Assert.Equal(4, items.Count);
         }
 
-
         [Fact]
-        public void CountryService_GetCountries_ShouldReturnExpectedResults()
+        public async Task GetCountriesByCurrency_ThrowException_ShouldReturnExpectedResult()
         {
             // Arrange
-            //var repositoryMock = new Mock<ICountryRepository>();
-            //repositoryMock.Setup(x => x.GetCountriesByCurrency(It.IsAny<string>())).ReturnsAsync(Helper.GetMockCountries());
-            //var loggerMock = new Mock<ILogger<CountryService>>();
-            //var countryService = new CountryService(repositoryMock.Object, loggerMock.Object);
+            var loggerMock = new Mock<ILogger<CountriesController>>();
+            var countryAppServiceMock = new Mock<ICountryAppService>();
+            countryAppServiceMock.Setup(repository => repository.GetCountriesAdapter(It.IsAny<string>()))
+                .Throws(new Exception());
+            var controller = new CountriesController(loggerMock.Object, countryAppServiceMock.Object);
 
-            //// Act
-            //var result = countryService.GetCountries("any").Result;
+            // Act
+            var result = await controller.Get(It.IsAny<string>()).ConfigureAwait(false) as BadRequestObjectResult;
 
-            //// Assert
-            //Assert.Equal(4, result.Count());
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal((int)HttpStatusCode.BadRequest, result.StatusCode);
+            Assert.Equal("Failed to get countries", result.Value);
         }
     }
 }
