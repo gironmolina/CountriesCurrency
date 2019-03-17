@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using CountriesCurrency.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -21,17 +22,17 @@ namespace CountriesCurrency.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get(string currency)
+        public async Task<IActionResult> Get(string currency)
         {
             try
             {
-                var result = _countryAppService.GetByCurrency("");
-                return Ok();
+                var result = await _countryAppService.GetCountriesAdapter(currency).ConfigureAwait(false);
+                return Ok(result);
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Failed to get orders: {ex}");
-                return BadRequest();
+                _logger.LogError($"Failed to get countries: {ex}");
+                return BadRequest("Failed to get countries");
             }
         }
     }

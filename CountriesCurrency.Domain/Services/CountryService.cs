@@ -1,31 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CountriesCurrency.Domain.Interfaces;
 using CountriesCurrency.Entities;
 using CountriesCurrency.Infrastructure.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace CountriesCurrency.Domain.Services
 {
     public class CountryService : ICountryService
     {
         private readonly ICountryRepository _countryRepository;
+        private readonly ILogger<CountryService> _logger;
 
-        public CountryService(ICountryRepository countryRepository)
+        public CountryService(ICountryRepository countryRepository, ILogger<CountryService> logger)
         {
             _countryRepository = countryRepository;
+            _logger = logger;
         }
 
-        //public string asd()
-        //{
-        //    var rates = await _countryRepository.GetCountriesByCurrency().ConfigureAwait(false);
-        //    return null;
-        //}
-        public async Task<IList<CountryEntity>> asd()
+        public async Task<IList<CountryEntity>> GetCountries(string currency)
         {
-            var rates = await _countryRepository.GetCountriesByCurrency().ConfigureAwait(false);
-            return null;
+            _logger.LogInformation($"GetCountries by currency:{currency} was called");
+            var countries = await _countryRepository.GetCountriesByCurrency(currency)
+                .ConfigureAwait(false);
+            return countries;
         }
     }
 }

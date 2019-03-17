@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CountriesCurrency.Entities;
 
@@ -8,6 +6,6 @@ namespace CountriesCurrency.Domain.Interfaces
 {
     public interface ICountryService
     {
-        Task<IList<CountryEntity>> asd();
+        Task<IList<CountryEntity>>GetCountries(string currency);
     }
 }

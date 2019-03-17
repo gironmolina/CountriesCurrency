@@ -1,4 +1,5 @@
-﻿using CountriesCurrency.Application.Interfaces;
+﻿using AutoMapper;
+using CountriesCurrency.Application.Interfaces;
 using CountriesCurrency.Application.Services;
 using CountriesCurrency.Domain.Interfaces;
 using CountriesCurrency.Domain.Services;
@@ -25,6 +26,7 @@ namespace CountriesCurrency.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper();
             services.AddTransient<ICountryAppService, CountryAppService>();
             services.AddTransient<ICountryService, CountryService>();
             services.AddScoped<ICountryRepository, CountryRepository>();
