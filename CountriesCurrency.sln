@@ -3,19 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesCurrency.API", "CountriesCurrency.API\CountriesCurrency.API.csproj", "{E1E24B98-EB2D-4938-8422-DB1F6B500993}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountriesCurrency.API", "CountriesCurrency.API\CountriesCurrency.API.csproj", "{E1E24B98-EB2D-4938-8422-DB1F6B500993}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CC6F03B8-8080-4327-9D8C-EF36FBE2E236}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesCurrency.Application", "CountriesCurrency.Application\CountriesCurrency.Application.csproj", "{8083F501-EFB9-41A0-99F0-9F327E5CF909}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountriesCurrency.Application", "CountriesCurrency.Application\CountriesCurrency.Application.csproj", "{8083F501-EFB9-41A0-99F0-9F327E5CF909}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesCurrency.Domain", "CountriesCurrency.Domain\CountriesCurrency.Domain.csproj", "{FC94E9F9-19E9-4EE2-9B1C-FC03792598EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountriesCurrency.Domain", "CountriesCurrency.Domain\CountriesCurrency.Domain.csproj", "{FC94E9F9-19E9-4EE2-9B1C-FC03792598EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesCurrency.Entities", "CountriesCurrency.Entities\CountriesCurrency.Entities.csproj", "{93138F0A-9F7F-43A1-8A1B-A22A5EFEE9AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountriesCurrency.Entities", "CountriesCurrency.Entities\CountriesCurrency.Entities.csproj", "{93138F0A-9F7F-43A1-8A1B-A22A5EFEE9AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesCurrency.Infrastructure", "CountriesCurrency.Infrastructure\CountriesCurrency.Infrastructure.csproj", "{68570F1E-0F5C-4621-B3CD-40FB52041523}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountriesCurrency.Infrastructure", "CountriesCurrency.Infrastructure\CountriesCurrency.Infrastructure.csproj", "{68570F1E-0F5C-4621-B3CD-40FB52041523}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesCurrency.CrossCutting", "CountriesCurrency.CrossCutting\CountriesCurrency.CrossCutting.csproj", "{5F1C3927-E2E4-42B7-B14B-610210F77D1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountriesCurrency.CrossCutting", "CountriesCurrency.CrossCutting\CountriesCurrency.CrossCutting.csproj", "{5F1C3927-E2E4-42B7-B14B-610210F77D1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesCurrency.Domain.Tests", "CountriesCurrency.Domain.Tests\CountriesCurrency.Domain.Tests.csproj", "{B461BD87-BB04-4D9A-B571-670DD3C19EE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountriesCurrency.IntegrationTests", "CountriesCurrency.IntegrationTests\CountriesCurrency.IntegrationTests.csproj", "{2CE9DCC0-C641-4A76-89DC-B747462ACA5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,9 +51,21 @@ Global
 		{5F1C3927-E2E4-42B7-B14B-610210F77D1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F1C3927-E2E4-42B7-B14B-610210F77D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F1C3927-E2E4-42B7-B14B-610210F77D1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B461BD87-BB04-4D9A-B571-670DD3C19EE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B461BD87-BB04-4D9A-B571-670DD3C19EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B461BD87-BB04-4D9A-B571-670DD3C19EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B461BD87-BB04-4D9A-B571-670DD3C19EE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CE9DCC0-C641-4A76-89DC-B747462ACA5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CE9DCC0-C641-4A76-89DC-B747462ACA5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CE9DCC0-C641-4A76-89DC-B747462ACA5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CE9DCC0-C641-4A76-89DC-B747462ACA5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B461BD87-BB04-4D9A-B571-670DD3C19EE6} = {CC6F03B8-8080-4327-9D8C-EF36FBE2E236}
+		{2CE9DCC0-C641-4A76-89DC-B747462ACA5C} = {CC6F03B8-8080-4327-9D8C-EF36FBE2E236}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2CA7EC87-EC05-4CFA-AC2D-E69656D327B3}
