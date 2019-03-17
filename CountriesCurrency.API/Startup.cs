@@ -1,4 +1,7 @@
-﻿using AutoMapper;
+﻿using System;
+using System.IO;
+using System.Reflection;
+using AutoMapper;
 using CountriesCurrency.Application.Interfaces;
 using CountriesCurrency.Application.Services;
 using CountriesCurrency.Domain.Interfaces;
@@ -35,7 +38,8 @@ namespace CountriesCurrency.API
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "CountryCurrency API", Version = "v1" });
+                c.IncludeXmlComments(GetXmlPath());
             });
         }
 
@@ -60,10 +64,17 @@ namespace CountriesCurrency.API
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "CountryCurrency V1");
+                c.RoutePrefix = string.Empty;
             });
 
             app.UseHttpsRedirection();
             app.UseMvc();
+        }
+
+        private string GetXmlPath()
+        {
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.XML";
+            return Path.Combine(AppContext.BaseDirectory, xmlFile);
         }
     }
 }

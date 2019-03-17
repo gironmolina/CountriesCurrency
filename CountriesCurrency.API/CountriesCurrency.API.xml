@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CountriesCurrency.API</name>
+    </assembly>
+    <members>
+        <member name="M:CountriesCurrency.API.Controllers.CountriesController.Get(System.String)">
+            <summary>
+            GET Countries by currency
+            </summary>
+            <remarks>
+            Here is a sample remarks placeholder.
+            </remarks>
+            <returns>A string status</returns>
+            <response code="200">Returns countries by currency.</response>
+            <response code="400">Bad request.</response> 
+        </member>
+    </members>
+</doc>
