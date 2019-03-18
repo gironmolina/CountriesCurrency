@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.Logging.Abstractions">
-      <HintPath>..\..\..\Users\giron\.nuget\packages\microsoft.extensions.logging.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <HintPath>..\..\..\Users\hkhirons\.nuget\packages\microsoft.extensions.logging.abstractions\2.2.0-preview3-35497\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
   </ItemGroup>
 
